@@ -1,88 +1,187 @@
 import { LitElement, html, css } from 'lit';
 
-const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
+export class MyCard extends LitElement {
+    static get properties () {
+        return {
+            version: {
+                type: String,
+                reflect: true
+            }
+        }
+    };
 
-class MyCard extends LitElement {
-  static properties = {
-    header: { type: String },
-  }
+    static get styles() {
+        return css`
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+    }
+    
+    .buttons {
+      display: block;
+    }
 
-  static styles = css`
-    :host {
-      min-height: 100vh;
-      display: flex;
+    #adder {
+      background-color: #61a1c9;
+      margin: 16px;
+      padding: 8px;
+    }
+
+    #adder:hover {
+      background-color: grey;
+    }
+
+    #adder:focus {
+      font-size: 16px;
+      background-color: #61a1c9;
+    }
+
+    #remover {
+      background-color: #61a1c9;
+      margin: 16px;
+      padding: 8px;
+    }
+
+    #remover:hover {
+      background-color: grey;
+    }
+
+    #remover:focus {
+      font-size: 16px;
+      background-color: #61a1c9;
+    }
+
+    #background {
+      background-color: #61a1c9;
+      margin: 16px;
+      padding: 8px;
+    }
+
+    #background:hover {
+      background-color: grey;
+    }
+
+    #background:focus {
+      font-size: 16px;
+      background-color: #61a1c9;
+    }
+
+    #heading-changer {
+      background-color: #61a1c9;
+      margin: 16px;
+      padding: 8px;
+    }
+
+    #heading-changer:hover {
+      background-color: grey;
+    }
+
+    #heading-changer:focus {
+      font-size: 16px;
+      background-color: #61a1c9;
+    }
+
+    #summary-button {
+      background-color: #ff0000;
+      color: #fff;
+      text-decoration: none;
+      padding: 8px;
+      border-radius: 40px;
+      display: block;
+      margin: 16px auto;
+      max-width: 100px;
+    }
+
+    .details-button {
+      background-color: #ff0000;
+      color: #fff;
+      text-decoration: none;
+      padding: 8px;
+      border-radius: 40px;
+      display: block;
+      margin: 16px auto;
+      max-width: 100px;
+    }
+
+    .details-button:hover {
+      background-color: green;
+    }
+
+    .card {
+      flex: 1;
+      max-width: 200px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      margin: 8px;
+      padding: 16px;
+      display: inline-flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      font-size: calc(10px + 2vmin);
-      color: #1a2b42;
-      max-width: 960px;
-      margin: 0 auto;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .card img {
+      width: 100%;
+      max-width: 100%;
+      height: 60%;
+      border-radius: 8px;
+    }
+
+    img {
+      max-height: 100px;
+    }
+
+    .card-content {
       text-align: center;
-      background-color: var(--my-card-background-color);
+      margin-top: 8px;
     }
 
-    main {
-      flex-grow: 1;
+    #heading {
+      color: black;
     }
 
-    .logo {
-      margin-top: 36px;
-      animation: app-logo-spin infinite 20s linear;
-    }
-
-    @keyframes app-logo-spin {
-      from {
-        transform: rotate(0deg);
+    @media (max-width: 800px) {
+      .details-button {
+        display: none;
       }
-      to {
-        transform: rotate(360deg);
+      #summary-button {
+        display: none;
       }
     }
 
-    .app-footer {
-      font-size: calc(12px + 0.5vmin);
-      align-items: center;
+    .basic {
+      background: hotpink;
     }
-
-    .app-footer a {
-      margin-left: 5px;
+        `;
     }
-  `;
-
-  constructor() {
-    super();
-    this.header = 'My app';
+  
+    constructor() {
+      super();
+      this.version = 'STARTING';
+    }
+  
+    render() {
+      return html`
+  <div class="wrapper">
+    <section class="card">
+      <img
+        src="https://www.brixton.com/cdn/shop/collections/Cat-M-Clothing-Sweatshirts_1024x1024.jpg?v=1690583462"
+        alt="New Arrival"
+      />
+      <div class="card-content">
+        <h2 id="heading">New Arrival</h2>
+        <p>check out our new arrival.</p>
+        <details>
+          <summary id="summary-button">Details</summary>
+          Winter Is Coming
+        </details>
+      </div>
+    </section>
+  </div>
+      `;
+    }
   }
-
-  render() {
-    return html`
-      <main>
-        <div class="logo"><img alt="open-wc logo" src=${logo} /></div>
-        <h1>${this.header}</h1>
-
-        <p>Edit <code>src/MyCard.js</code> and save to reload.</p>
-        <a
-          class="app-link"
-          href="https://open-wc.org/guides/developing-components/code-examples/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Code examples
-        </a>
-      </main>
-
-      <p class="app-footer">
-        🚽 Made with love by
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/open-wc"
-          >open-wc</a
-        >.
-      </p>
-    `;
-  }
-}
 
 customElements.define('my-card', MyCard);

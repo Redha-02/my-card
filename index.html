@@ -1,171 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-  <div class="wrapper">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="Description" content="Put your description here." />
+    <base href="/" />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-color: #ededed;
+        text-align: center;
+      }
+    </style>
+    <title>my-card</title>
+  </head>
+
+  <body>
+    <!-- put the buttons in here -->
     <div class="buttons">
       <button id="adder">Add</button>
       <button id="remover">remove</button>
       <button id="background">Background</button>
       <button id="heading-changer">Heading</button>
     </div>
+    <my-card></my-card>
+    <script type="module" src="./src/my-card.js"></script>
+    <!-- calling the card -->
 
-    <section class="card">
-      <img
-        src="https://www.brixton.com/cdn/shop/collections/Cat-M-Clothing-Sweatshirts_1024x1024.jpg?v=1690583462"
-        alt="New Arrival"
-      />
-      <div class="card-content">
-        <h2 id="heading">New Arrival</h2>
-        <p>check out our new arrival. new collection</p>
-        <details>
-          <summary id="summary-button">Details</summary>
-          Winter Is Coming
-        </details>
-      </div>
-    </section>
-  </div>
+    <script>
+      document.querySelector("#adder").addEventListener("click", function (e) {
+        const card = document.querySelector("my-card");
+        const cardClone = card.cloneNode();
+        document.body.appendChild(cardClone);
+        console.log(cardClone);
+      });
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      text-align: center;
-    }
+      document
+        .querySelector("#remover")
+        .addEventListener("click", function (e) {
+          const cards = document.querySelectorAll("my-card");
+          const lastCard = cards[cards.length - 1];
 
-    .buttons {
-      display: block;
-    }
+          if (cards.length > 1) {
+            lastCard.remove();
+          }
+        });
 
-    #adder {
-      background-color: #61a1c9;
-      margin: 16px;
-      padding: 8px;
-    }
+      //to change background
+      //not woking!! I added the shadowroot
 
-    #adder:hover {
-      background-color: grey;
-    }
+      document
+        .querySelector("#background")
+        .addEventListener("click", function (e) {
+          if (
+            !document
+              .querySelector("my-card")
+              .shadowRoot.querySelector(".card")
+              .classList.contains("basic")
+          ) {
+            document.querySelectorAll("my-card").forEach((item) => {
+              item.shadowRoot.querySelector(".card").classList.add("basic");
+            });
+          } else {
+            document.querySelectorAll("my-card").forEach((item) => {
+              item.shadowRoot.querySelector(".card").classList.remove("basic");
+            });
+          }
+        });
 
-    #adder:focus {
-      font-size: 16px;
-      background-color: #61a1c9;
-    }
+      //change the heading of the card
+      //why is it changing the heading only once?
 
-    #remover {
-      background-color: #61a1c9;
-      margin: 16px;
-      padding: 8px;
-    }
-
-    #remover:hover {
-      background-color: grey;
-    }
-
-    #remover:focus {
-      font-size: 16px;
-      background-color: #61a1c9;
-    }
-
-    #background {
-      background-color: #61a1c9;
-      margin: 16px;
-      padding: 8px;
-    }
-
-    #background:hover {
-      background-color: grey;
-    }
-
-    #background:focus {
-      font-size: 16px;
-      background-color: #61a1c9;
-    }
-
-    #heading-changer {
-      background-color: #61a1c9;
-      margin: 16px;
-      padding: 8px;
-    }
-
-    #heading-changer:hover {
-      background-color: grey;
-    }
-
-    #heading-changer:focus {
-      font-size: 16px;
-      background-color: #61a1c9;
-    }
-
-    #summary-button {
-      background-color: #ff0000;
-      color: #fff;
-      text-decoration: none;
-      padding: 8px;
-      border-radius: 40px;
-      display: block;
-      margin: 16px auto;
-      max-width: 100px;
-    }
-
-    .details-button {
-      background-color: #ff0000;
-      color: #fff;
-      text-decoration: none;
-      padding: 8px;
-      border-radius: 40px;
-      display: block;
-      margin: 16px auto;
-      max-width: 100px;
-    }
-
-    .details-button:hover {
-      background-color: green;
-    }
-
-    .card {
-      flex: 1;
-      max-width: 200px;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 20px;
-      margin: 8px;
-      padding: 16px;
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      transition: box-shadow 0.3s ease;
-    }
-
-    .card img {
-      width: 100%;
-      max-width: 100%;
-      height: 60%;
-      border-radius: 8px;
-    }
-
-    img {
-      max-height: 100px;
-    }
-
-    .card-content {
-      text-align: center;
-      margin-top: 8px;
-    }
-
-    #heading {
-      color: black;
-    }
-
-    @media (max-width: 800px) {
-      .details-button {
-        display: none;
-      }
-      #summary-button {
-        display: none;
-      }
-    }
-
-    .basic {
-      background: hotpink;
-    }
-  </style>
+      document
+        .querySelector("#heading-changer")
+        .addEventListener("click", function (e) {
+          if (
+            document
+              .querySelector("my-card")
+              .shadowRoot.querySelector("#heading").innerHTML == "New Arrival"
+          ) {
+            document.querySelectorAll("my-card").forEach((item) => {
+              item.shadowRoot.querySelector("#heading").innerHTML =
+                "Tesla Sucks";
+            });
+          } else {
+            document.querySelectorAll("my-card").forEach((item) => {
+              item.shadowRoot.querySelector("#heading").innerHTML =
+                "New Arrival";
+            });
+          }
+        });
+    </script>
+  </body>
 </html>

@@ -9,34 +9,33 @@
         {
           "kind": "class",
           "description": "",
-          "name": "MyCard",
+          "name": "MyElement",
           "members": [
             {
               "kind": "field",
-              "name": "header",
+              "name": "version",
               "type": {
                 "text": "string"
               },
-              "default": "'My app'",
-              "privacy": "public",
-              "attribute": "header"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "header",
-              "fieldName": "header"
+              "default": "'STARTING'"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "my-card",
           "customElement": true
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "MyElement",
+          "declaration": {
+            "name": "MyElement",
+            "module": "src/my-card.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "my-card",
@@ -46,6 +45,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "my-card/src/my-card.js",
+      "declarations": [],
+      "exports": []
     }
   ]
 }
