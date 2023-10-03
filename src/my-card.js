@@ -175,7 +175,7 @@ export class MyCard extends LitElement {
         <p>check out our new arrival.</p>
         <details>
           <summary id="summary-button">Details</summary>
-          Winter Is Coming
+          there are no deals at the moment
         </details>
       </div>
     </section>
