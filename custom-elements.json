@@ -9,7 +9,7 @@
         {
           "kind": "class",
           "description": "",
-          "name": "MyElement",
+          "name": "MyCard",
           "members": [
             {
               "kind": "field",
@@ -17,22 +17,32 @@
               "type": {
                 "text": "string"
               },
-              "default": "'STARTING'"
+              "default": "'STARTING'",
+              "privacy": "public",
+              "attribute": "version",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "version",
+              "fieldName": "version"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
+          "tagName": "my-card",
           "customElement": true
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "MyElement",
+          "name": "MyCard",
           "declaration": {
-            "name": "MyElement",
+            "name": "MyCard",
             "module": "src/my-card.js"
           }
         },
@@ -48,9 +58,30 @@
     },
     {
       "kind": "javascript-module",
-      "path": "my-card/src/my-card.js",
-      "declarations": [],
-      "exports": []
+      "path": "stories/my-card.stories.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "App"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "module": "stories/my-card.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "App",
+          "declaration": {
+            "name": "App",
+            "module": "stories/my-card.stories.js"
+          }
+        }
+      ]
     }
   ]
 }
