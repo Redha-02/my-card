@@ -1,17 +1,19 @@
 import { LitElement, html, css } from 'lit';
+import "@lrnwebcomponents/meme-maker"
 
 export class MyCard extends LitElement {
-    static get properties () {
-        return {
-            version: {
-                type: String,
-                reflect: true
-            }
-        }
-    };
+    static properties = {
+      image: { type: String },
+      alt: { type: String },
+      title: { type: String },
+      description: { type: String },
+      link: { type: String },
+      dark: { type: Boolean }
+      }
+    
 
-    static get styles() {
-        return css`
+    static styles = css`
+    
     body {
       font-family: Arial, sans-serif;
       background-color: #f0f0f0;
@@ -155,27 +157,44 @@ export class MyCard extends LitElement {
       background: hotpink;
     }
         `;
-    }
+    
   
     constructor() {
       super();
-      this.version = 'STARTING';
+      this.title = 'I will meao you';
+      this.description = 'the king of the jungle is basically a cat, do not underestemate us';
     }
   
+    //name your variables. ex: this.image = link,,,,etc
+    //in order to use them whenevar u want
+    // add a bolean and then bg toggle, video
+    //dark is stateful because other developers can pkay with the card
+    // use <slot> to add links
+    //for week 7: make ur card have properties and stateful, and add the buttons outside the card, and ,ale slots
+    //get npm.js acount, and publish to npm (bbetweemn)
+    // code not running, changed structure at top + variables, how to do dark, host necessary? where to add slot?
+    //Thursday: add two cards, one card and a meme maker, they must be reusable and thats's it, watch recording
+    //how to do dark and host, how to make meme-maker work
+    // publish your code to npm (npm establish)
+    //then start new project and do npm install + add another card and a meme-maker and link it to vercel
+
+    
     render() {
       return html`
   <div class="wrapper">
     <section class="card">
       <img
-        src="https://www.brixton.com/cdn/shop/collections/Cat-M-Clothing-Sweatshirts_1024x1024.jpg?v=1690583462"
-        alt="New Arrival"
+        src="https://t4.ftcdn.net/jpg/05/62/99/31/360_F_562993122_e7pGkeY8yMfXJcRmclsoIjtOoVDDgIlh.jpg"
+        alt="cat boss"
       />
+      <meme-maker alt="Cat stalking a small toy" image-url="https://cdn2.thecatapi.com/images/9j5.jpg" top-text="I bring you" bottom-text="the death">
+</meme-maker>
       <div class="card-content">
-        <h2 id="heading">New Arrival</h2>
-        <p>check out our new arrival.</p>
+        <h2 id="heading">${this.title}</h2>
+        <p>${this.description}</p>
         <details>
           <summary id="summary-button">Details</summary>
-          there are no deals at the moment
+          <slot></slot>
         </details>
       </div>
     </section>
@@ -183,5 +202,6 @@ export class MyCard extends LitElement {
       `;
     }
   }
+  
 
 customElements.define('my-card', MyCard);

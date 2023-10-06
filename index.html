@@ -30,8 +30,9 @@
       <button id="background">Background</button>
       <button id="heading-changer">Heading</button>
     </div>
-    <my-card></my-card>
+    <my-card>meaaaaaaaooooo</my-card>
     <script type="module" src="./src/my-card.js"></script>
+    <script type="module" src="meme-maker.js"></script>
     <!-- calling the card -->
 
     <script>
@@ -54,7 +55,10 @@
         });
 
       //to change background
-      //not woking!! I added the shadowroot
+      // command shift r> super refresh
+      // for week 7, do the variables + (top and buttom) ex: this.
+      // add slots for the htmls
+      //resubmit vercel
 
       document
         .querySelector("#background")
@@ -76,7 +80,6 @@
         });
 
       //change the heading of the card
-      //why is it changing the heading only once?
 
       document
         .querySelector("#heading-changer")
@@ -84,16 +87,17 @@
           if (
             document
               .querySelector("my-card")
-              .shadowRoot.querySelector("#heading").innerHTML == "New Arrival"
+              .shadowRoot.querySelector("#heading").innerHTML ==
+            "I will meao you"
           ) {
             document.querySelectorAll("my-card").forEach((item) => {
               item.shadowRoot.querySelector("#heading").innerHTML =
-                "Tesla Sucks";
+                "meaaaaaooooooo";
             });
           } else {
             document.querySelectorAll("my-card").forEach((item) => {
               item.shadowRoot.querySelector("#heading").innerHTML =
-                "New Arrival";
+                "I will meao you";
             });
           }
         });
