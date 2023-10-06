@@ -16,6 +16,7 @@
     "start:build": "web-dev-server --root-dir dist --app-index index.html --open"
   },
   "dependencies": {
+    "@lrnwebcomponents/meme-maker": "^7.0.18",
     "lit": "^2.0.2"
   },
   "devDependencies": {
