@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import "@lrnwebcomponents/meme-maker"
+import "@lrnwebcomponents/meme-maker";
 
 export class MyCard extends LitElement {
     static properties = {
