@@ -1,5 +1,4 @@
 import { LitElement, html, css } from 'lit';
-import "@lrnwebcomponents/meme-maker/meme-maker.js";
 
 export class MyCard extends LitElement {
     static properties = {
@@ -187,8 +186,6 @@ export class MyCard extends LitElement {
         src="https://t4.ftcdn.net/jpg/05/62/99/31/360_F_562993122_e7pGkeY8yMfXJcRmclsoIjtOoVDDgIlh.jpg"
         alt="cat boss"
       />
-      <meme-maker alt="Cat stalking a small toy" image-url="https://cdn2.thecatapi.com/images/9j5.jpg" top-text="I bring you" bottom-text="the death">
-</meme-maker>
       <div class="card-content">
         <h2 id="heading">${this.title}</h2>
         <p>${this.description}</p>
