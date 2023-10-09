@@ -12,7 +12,6 @@ export class MyCard extends LitElement {
     
 
     static styles = css`
-    
     body {
       font-family: Arial, sans-serif;
       background-color: #f0f0f0;
@@ -164,6 +163,7 @@ export class MyCard extends LitElement {
       this.description = 'the king of the jungle is basically a cat, do not underestemate us';
     }
   
+  
     //name your variables. ex: this.image = link,,,,etc
     //in order to use them whenevar u want
     // add a bolean and then bg toggle, video
@@ -182,7 +182,7 @@ export class MyCard extends LitElement {
       return html`
   <div class="wrapper">
     <section class="card">
-      <img
+    <img
         src="https://t4.ftcdn.net/jpg/05/62/99/31/360_F_562993122_e7pGkeY8yMfXJcRmclsoIjtOoVDDgIlh.jpg"
         alt="cat boss"
       />
