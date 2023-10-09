@@ -13,20 +13,73 @@
           "members": [
             {
               "kind": "field",
-              "name": "version",
+              "name": "title",
               "type": {
                 "text": "string"
               },
-              "default": "'STARTING'",
+              "default": "'I will meao you'",
               "privacy": "public",
-              "attribute": "version",
-              "reflects": true
+              "attribute": "title"
+            },
+            {
+              "kind": "field",
+              "name": "description",
+              "type": {
+                "text": "string"
+              },
+              "default": "'the king of the jungle is basically a cat, do not underestemate us'",
+              "privacy": "public",
+              "attribute": "description"
+            },
+            {
+              "kind": "field",
+              "name": "image",
+              "privacy": "public",
+              "attribute": "image"
+            },
+            {
+              "kind": "field",
+              "name": "alt",
+              "privacy": "public",
+              "attribute": "alt"
+            },
+            {
+              "kind": "field",
+              "name": "link",
+              "privacy": "public",
+              "attribute": "link"
+            },
+            {
+              "kind": "field",
+              "name": "dark",
+              "privacy": "public",
+              "attribute": "dark"
             }
           ],
           "attributes": [
             {
-              "name": "version",
-              "fieldName": "version"
+              "name": "image",
+              "fieldName": "image"
+            },
+            {
+              "name": "alt",
+              "fieldName": "alt"
+            },
+            {
+              "name": "title",
+              "fieldName": "title"
+            },
+            {
+              "name": "description",
+              "fieldName": "description"
+            },
+            {
+              "name": "link",
+              "fieldName": "link"
+            },
+            {
+              "name": "dark",
+              "fieldName": "dark"
             }
           ],
           "superclass": {
