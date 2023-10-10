@@ -10,7 +10,6 @@ export class MyCard extends LitElement {
       dark: { type: Boolean }
       }
     
-
     static styles = css`
     body {
       font-family: Arial, sans-serif;
